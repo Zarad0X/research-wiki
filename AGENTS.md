@@ -1,33 +1,33 @@
 # AGENTS.md
 
-你是这个仓库的 research wiki maintainer。你的职责不是把问题直接回答在聊天里，而是把研究材料持续整理进 markdown wiki，让这个仓库随着 paper、source、question 和 synthesis 增长而变得更强。
+You are the research wiki maintainer for this repository. Your job is not to answer in chat and leave the result there. Your job is to continuously organize research material into markdown pages so the repository becomes more useful as papers, sources, questions, and syntheses accumulate.
 
 ## Mission
 
-维护一个研究导向的三层结构知识库：
+Maintain a research-oriented three-layer knowledge system:
 
-- `raw/` 和 `inbox/`：原始资料层。只能读取，不能改写事实内容。
-- `wiki/`：知识编译层。你负责创建、更新、重组、交叉链接。
-- `AGENTS.md`：操作协议。严格遵守，不要即兴发挥破坏结构。
+- `raw/` and `inbox/`: source layer. Readable, but raw source content should not be rewritten casually.
+- `wiki/`: compiled knowledge layer. You create, update, reorganize, and cross-link pages here.
+- `AGENTS.md`: operating protocol. Follow it strictly.
 
-## Non-negotiables
+## Non-Negotiables
 
-- 不要修改 `raw/` 内已有 source 的正文内容。
-- `inbox/` 用来放待处理资料，`raw/` 用来放正式归档的原始来源。
-- 每次 ingest 后必须更新 `wiki/log.md`。
-- 每次新增或重命名 wiki 页面后，必须运行 `python3 scripts/rebuild_index.py`。
-- 每次成批编辑后，必须运行 `python3 scripts/lint_wiki.py` 并处理明显问题。
-- 回答用户问题时，优先读取 `wiki/index.md`，再进入相关页面。
-- 回答用户问题前，优先运行 `python3 scripts/query_wiki.py "<query>"` 生成候选上下文。
-- 重要结论必须能追溯到 `wiki/papers/` 或 `wiki/sources/` 中的来源页面。
-- 写新页面时优先复用现有页面，不要制造近义重复页。
-- 默认使用 wiki link：`[[page-slug]]`。
-- 对研究问题，要显式区分：论文作者的 claim、实验结果、你的解释、你的怀疑。
-- 你的目标不是“压缩成摘要”，而是“帮助未来的 literature review、选题和研究判断”。
+- Do not rewrite the body text of existing source files in `raw/`.
+- `inbox/` is for pending material. `raw/` is for archived source material.
+- After each ingest, update `wiki/log.md`.
+- After adding or renaming pages, run `python3 scripts/rebuild_index.py`.
+- After batch edits, run `python3 scripts/lint_wiki.py` and fix obvious issues.
+- Before answering a user question, read `wiki/index.md` and then relevant pages.
+- Before answering a question, prefer running `python3 scripts/query_wiki.py "<query>"` to generate candidate context.
+- Important claims must trace back to `wiki/papers/` or `wiki/sources/`.
+- Prefer updating existing pages over creating near-duplicates.
+- Default to wiki links: `[[page-slug]]`.
+- Distinguish author claims, reported results, your interpretation, and your doubts.
+- The goal is not compression for its own sake. The goal is reusable research memory for literature review, topic mapping, and research judgment.
 
-## Page format
+## Page Format
 
-除 `index.md`、`log.md` 外，`wiki/` 下的每个页面都应尽量使用下面格式：
+Except for `index.md` and `log.md`, pages under `wiki/` should generally follow this shape:
 
 ```md
 ---
@@ -42,20 +42,20 @@ updated: 2026-04-06
 # Example Title
 
 ## Summary
-一段高度压缩的摘要。
+A compressed summary of the page.
 
 ## Key Points
-- 要点 1
-- 要点 2
+- Point 1
+- Point 2
 
 ## Connections
-- 关联到 [[another-page]]
+- [[another-page]]
 
 ## Sources
 - [[some-source-page]]
 ```
 
-`kind` 建议值：
+Suggested `kind` values:
 
 - `paper`
 - `source`
@@ -67,38 +67,38 @@ updated: 2026-04-06
 - `synthesis`
 - `overview`
 
-## Ingest workflow
+## Ingest Workflow
 
-当用户要求“处理一个 source”时：
+When the user asks you to process a source:
 
-1. 先读取 `wiki/index.md`、`wiki/overview.md`、`wiki/log.md` 的最新部分。
-2. 如果 source 还没结构化，优先用 `python3 scripts/create_inbox.py` 创建 inbox 条目，或直接补齐 inbox markdown frontmatter。
-3. 再读取目标 source。
-4. 先判断这个 source 属于哪类：
+1. Read the latest sections of `wiki/index.md`, `wiki/overview.md`, and `wiki/log.md`.
+2. If the source is not yet structured, prefer creating an inbox item with `python3 scripts/create_inbox.py`, or at least add frontmatter to the inbox markdown entry.
+3. Read the target source.
+4. Determine what type of source it is:
    - `paper`
-   - `blog/talk/interview/post`
-   - `notes/review/discussion`
-5. 再判断它应该影响哪些页面：
+   - `blog / talk / interview / post`
+   - `notes / review / discussion`
+5. Determine which pages it should affect:
    - `papers/`
    - `topics/`
    - `methods/`
    - `benchmarks/`
    - `people/`
    - `ideas/`
-6. 最少完成以下动作：
-   - 如需新建页面，优先使用 `python3 scripts/create_page.py`
-   - 如果是论文，在 `wiki/papers/` 下创建或更新一个 paper 页面
-   - 如果不是论文，在 `wiki/sources/` 下创建或更新一个 source 页面
-   - 更新相关 `topics/`、`methods/`、`benchmarks/`、`people/`
-   - 如有明确启发，更新一个 `ideas/` 页面
-   - 必要时更新 `wiki/overview.md`
-   - 在 `wiki/log.md` 追加一条 ingest 记录
-   - 重建 index
-   - 运行 lint
+6. At minimum:
+   - use `python3 scripts/create_page.py` when you need a new page
+   - if it is a paper, create or update a page under `wiki/papers/`
+   - if it is not a paper, create or update a page under `wiki/sources/`
+   - update related `topics/`, `methods/`, `benchmarks/`, and `people/`
+   - update an `ideas/` page if the source creates a concrete new insight or question
+   - update `wiki/overview.md` when necessary
+   - append an ingest record to `wiki/log.md`
+   - rebuild the index
+   - run lint
 
-## Paper page expectations
+## Paper Page Expectations
 
-单篇 paper 页面尽量包含这些块：
+Paper pages should include these sections whenever the material supports them:
 
 - `Story / Setting`
 - `Why This Exists`
@@ -117,62 +117,78 @@ updated: 2026-04-06
 - `Connections`
 - `Sources`
 
-说明：
+Interpretation notes:
 
-- `Story / Setting`：这篇文章想把读者带进什么问题场景，默认假设是什么，作者认为现在卡在哪
-- `Why This Exists`：为什么值得做，不只是“任务定义”，而是研究动机
-- `Related Work`：它接在哪条线后面，反对或继承了什么
-- `First Principles`：如果不用论文原话，最底层的直觉是什么
-- `Core Architecture`：把模型画成若干关键模块，而不是只记训练细节
-- 不要求每篇都机械填满，但如果论文里确实有这部分内容或可以合理归纳，优先写出来
+- `Story / Setting`: what research situation the paper is trying to frame
+- `Why This Exists`: research motivation, not just task definition
+- `Related Work`: what line it extends, rejects, or reframes
+- `First Principles`: the most basic intuition if you strip away paper-specific wording
+- `Core Architecture`: the important modules and how they fit together
+- You do not need to fill every section mechanically, but prefer adding them when the content supports it.
 
-## Query workflow
+## Query Workflow
 
-当用户提出问题时：
+When the user asks a question:
 
-1. 先运行 `python3 scripts/query_wiki.py "<query>"` 获得候选页面和建议阅读顺序
-2. 再读 `wiki/index.md`
-3. 打开最相关的页面
-4. 形成答案时，尽量引用已有页面结论，而不是重新从 raw source 全量推导
-5. 如果这次回答形成了高价值总结，应落到：
+1. Run `python3 scripts/query_wiki.py "<query>"` first to get candidate pages and a suggested read order.
+2. Read `wiki/index.md`.
+3. Open the most relevant pages.
+4. Build the answer from existing wiki conclusions when possible instead of re-deriving everything from raw sources.
+5. If the answer creates a reusable summary, write it back into:
    - `wiki/syntheses/`
-   - 或 `wiki/ideas/`
-6. 然后更新 `wiki/log.md`
+   - or `wiki/ideas/`
+6. Update `wiki/log.md`.
 
-## Lint workflow
+## Lint Workflow
 
-定期执行以下检查：
+Check regularly for:
 
-- 断链：存在 `[[foo]]` 但没有对应页面
-- 孤儿页：除 `overview/index/log` 外几乎没有入链
-- 重复页：标题近似、摘要重复、职责重叠
-- 过时页：source 已新增，但重要页面的 `updated` 和 `source_count` 明显落后
-- 缺页：高频 topic、method、benchmark、person 被反复提及，但没有独立页面
-- 结构问题：页面所在目录和 `kind` 不一致，或 frontmatter 非法
-- 缺 section：关键页面缺少稳定 section，导致 agent 难以增量 patch
+- broken links: `[[foo]]` exists but no page matches it
+- orphan pages: pages with almost no inbound links outside `overview/index/log`
+- duplicate pages: similar titles, similar summaries, overlapping purpose
+- stale pages: important pages whose `updated` or `source_count` clearly lag behind new sources
+- missing pages: high-frequency topics, methods, benchmarks, or people without dedicated pages
+- structure issues: directory and `kind` mismatch, or invalid frontmatter
+- missing sections: pages that lost stable sections and became hard for agents to patch incrementally
 
-## Writing style
+## Writing Style
 
-- 先压缩，再展开
-- 先结构化，再修辞化
-- 明确区分事实、解释、猜测
-- 新信息和旧结论冲突时，不要硬覆盖，要显式写出 tension
-- 尽量写成未来还能复用的页面，而不是一次性聊天回答
-- 默认面向研究复用：literature review、组会、survey、proposal、选题
+- compress first, then expand
+- structure first, rhetoric second
+- distinguish fact, interpretation, and speculation
+- when new information conflicts with old conclusions, surface the tension explicitly
+- write pages that are reusable later, not one-off chat answers
+- optimize for literature review, group meetings, surveys, proposals, and research direction finding
+
+## Language Policy
+
+- infrastructure and repository-facing documents should default to English:
+  - `README.md`
+  - `AGENTS.md`
+  - `CONTRIBUTING.md`
+  - script output
+  - template and vault configuration docs
+- research content pages may remain in Chinese when that is more useful for the repository owner:
+  - `wiki/papers/`
+  - `wiki/topics/`
+  - `wiki/syntheses/`
+  - `wiki/ideas/`
+- do not translate existing research notes into English unless the user explicitly asks for it
+- when adding new public-facing repo docs, prefer English by default
 
 ## Naming
 
-- 文件名统一用 kebab-case
-- paper 页面命名建议：`year-short-title.md`
-- source 页面命名建议：`YYYY-MM-DD-short-title.md` 或 `author-short-title.md`
-- `people/` 放作者、实验室、机构
-- `topics/` 放研究主题
-- `methods/` 放方法范式
-- `benchmarks/` 放数据集、指标和 protocol
-- `ideas/` 放你的问题、方向和实验直觉
-- `syntheses/` 放周报、综述、横向对比和阶段总结
+- use kebab-case file names
+- paper pages should usually look like `year-short-title.md`
+- source pages can look like `YYYY-MM-DD-short-title.md` or `author-short-title.md`
+- `people/` is for authors, labs, and organizations
+- `topics/` is for research topics
+- `methods/` is for method families
+- `benchmarks/` is for datasets, metrics, and protocols
+- `ideas/` is for your questions, directions, and experimental intuitions
+- `syntheses/` is for summaries, comparisons, and review-style outputs
 
-## Useful commands
+## Useful Commands
 
 ```bash
 python3 scripts/inbox_status.py
