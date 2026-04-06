@@ -97,14 +97,14 @@ def build_index(pages: list[Page]) -> str:
     for page in pages:
         grouped.setdefault(page.section, []).append(page)
 
-    lines = ["# Wiki Index", "", "由 `python3 scripts/rebuild_index.py` 自动维护。", ""]
+    lines = ["# Wiki Index", "", "Automatically maintained by `python3 scripts/rebuild_index.py`.", ""]
     for section_key, section_title in SECTION_ORDER:
         items = grouped.get(section_key, [])
         count_suffix = f" ({len(items)})" if items else ""
         lines.append(f"## {section_title}{count_suffix}")
         lines.append("")
         if not items:
-            lines.append("- 暂无")
+            lines.append("- None yet.")
             lines.append("")
             continue
         for page in sorted(items, key=lambda item: item.slug):

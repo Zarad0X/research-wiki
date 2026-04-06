@@ -39,3 +39,10 @@
 - Added `scripts/create_inbox.py` plus `templates/inbox-item.md` so inbox entries can be structured instead of ad hoc.
 - Extended `inbox_status.py` to read markdown frontmatter for status and priority.
 - Extended `lint_wiki.py` to check required sections so pages stay patch-friendly for LLM maintenance.
+
+## [2026-04-06] ingest | paper from inbox
+
+- Archived the source into `raw/papers/2026-04-06-trellis.md`.
+- Created `[[2024-trellis]]` from the archived source.
+- Added `[[3d-generation]]` as the seed topic page for this new line.
+- Rebuilt `wiki/index.md` and ran lint after the ingest scaffold.

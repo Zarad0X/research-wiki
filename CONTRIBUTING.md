@@ -15,8 +15,8 @@ This repository is both a human-readable research wiki and an agent-maintained m
 
 ## Repository Map
 
-- `inbox/`: pending material
-- `raw/`: archived source material
+- `inbox/`: pending material that has not entered the archive yet
+- `raw/`: archived source material and the canonical source layer
 - `wiki/`: compiled knowledge maintained by agents
 - `templates/`: page templates
 - `scripts/`: index, lint, query, and creation tools
@@ -40,6 +40,7 @@ This repository is both a human-readable research wiki and an agent-maintained m
 ```bash
 python3 scripts/inbox_status.py
 python3 scripts/create_inbox.py "A new paper to read" --source-type paper
+python3 scripts/ingest_inbox.py "2026-04-06-a-new-paper-to-read.md" --year 2026
 python3 scripts/create_page.py paper "A Paper Title" --year 2026
 python3 scripts/query_wiki.py "world action model"
 python3 scripts/rebuild_index.py
@@ -66,6 +67,8 @@ python3 scripts/query_wiki.py "<query>"
 
 3. If ingesting a new source:
    - read `wiki/index.md`, `wiki/overview.md`, and `wiki/log.md`
+   - prefer `ingest_inbox.py` when the source already exists as a structured inbox item
+   - when using `ingest_inbox.py`, expect the source to move from `inbox/` into `raw/`
    - classify the source and affected pages
    - use `create_page.py` when creating new pages
 4. After edits, always:

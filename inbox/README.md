@@ -1,15 +1,15 @@
 # Inbox
 
-这里放还没正式 ingest 的资料。
+Keep pending material here before it enters the archive.
 
-可以把临时抓下来的网页、零散笔记、截图说明先放进来。等你准备好后，再让 agent 把它们整理进 `raw/` 或直接编译到 `wiki/`。
+Use this directory as a queue for new sources: links to read later, rough notes, pasted excerpts, and newly collected material. Once an item is ingested, it should leave `inbox/` and be archived under `raw/`.
 
-建议：
+Guidelines:
 
-- 新来的资料先放这里，不要直接堆到 `raw/`
-- 一份资料尽量一个文件或一个目录
-- 文件名尽量包含日期或短标题
-- 如果是 markdown，优先带 frontmatter：`title`、`source_type`、`status`、`priority`、`created`
-- 用 `python3 scripts/inbox_status.py` 查看待处理条目
-- 用 `python3 scripts/create_inbox.py "Title"` 快速创建结构化条目
-- 完成 ingest 后，再决定是否移入 `raw/`
+- Put newly collected material here before it reaches `raw/`.
+- Prefer one file or one folder per source.
+- Include a date or a short title in file names.
+- For markdown items, prefer frontmatter with `title`, `source_type`, `status`, `priority`, and `created`.
+- Use `python3 scripts/inbox_status.py` to inspect pending items.
+- Use `python3 scripts/create_inbox.py "Title"` to create a structured entry quickly.
+- Use `python3 scripts/ingest_inbox.py "<item>"` to archive the item into `raw/` and create its first-pass wiki scaffold.

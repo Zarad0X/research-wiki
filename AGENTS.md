@@ -14,9 +14,11 @@ Maintain a research-oriented three-layer knowledge system:
 
 - Do not rewrite the body text of existing source files in `raw/`.
 - `inbox/` is for pending material. `raw/` is for archived source material.
+- After an inbox item is ingested, it should leave `inbox/` and become an archived source under `raw/`.
 - After each ingest, update `wiki/log.md`.
 - After adding or renaming pages, run `python3 scripts/rebuild_index.py`.
 - After batch edits, run `python3 scripts/lint_wiki.py` and fix obvious issues.
+- When an inbox item is already structured, prefer `python3 scripts/ingest_inbox.py` to create the first-pass scaffold before doing deeper edits.
 - Before answering a user question, read `wiki/index.md` and then relevant pages.
 - Before answering a question, prefer running `python3 scripts/query_wiki.py "<query>"` to generate candidate context.
 - Important claims must trace back to `wiki/papers/` or `wiki/sources/`.
@@ -73,20 +75,25 @@ When the user asks you to process a source:
 
 1. Read the latest sections of `wiki/index.md`, `wiki/overview.md`, and `wiki/log.md`.
 2. If the source is not yet structured, prefer creating an inbox item with `python3 scripts/create_inbox.py`, or at least add frontmatter to the inbox markdown entry.
-3. Read the target source.
-4. Determine what type of source it is:
+3. If the inbox item is already structured enough for a first-pass scaffold, run `python3 scripts/ingest_inbox.py "<item>"`.
+   - this should archive the source into `raw/`
+   - create the first-pass wiki page
+   - remove the item from `inbox/`
+4. Read the target source.
+5. Determine what type of source it is:
    - `paper`
    - `blog / talk / interview / post`
    - `notes / review / discussion`
-5. Determine which pages it should affect:
+6. Determine which pages it should affect:
    - `papers/`
    - `topics/`
    - `methods/`
    - `benchmarks/`
    - `people/`
    - `ideas/`
-6. At minimum:
+7. At minimum:
    - use `python3 scripts/create_page.py` when you need a new page
+   - use `python3 scripts/ingest_inbox.py` when the source already exists as a structured inbox item and should be archived into `raw/`
    - if it is a paper, create or update a page under `wiki/papers/`
    - if it is not a paper, create or update a page under `wiki/sources/`
    - update related `topics/`, `methods/`, `benchmarks/`, and `people/`
@@ -193,6 +200,7 @@ Check regularly for:
 ```bash
 python3 scripts/inbox_status.py
 python3 scripts/create_inbox.py "A new paper to read" --source-type paper
+python3 scripts/ingest_inbox.py "2026-04-06-a-new-paper-to-read.md" --year 2026
 python3 scripts/create_page.py topic "Embodied Planning"
 python3 scripts/query_wiki.py "world action model"
 python3 scripts/rebuild_index.py

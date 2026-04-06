@@ -1,9 +1,9 @@
 # Assets
 
-这里放 Obsidian 粘贴图片、截图和其他附件。
+Store pasted images, screenshots, and other attachments for Obsidian here.
 
-约定：
+Conventions:
 
-- 它属于 `raw/` 的一部分，但主要是配套附件，不是核心 source 页面
-- 在 Obsidian 里默认会作为附件目录使用
-- 文件浏览里默认被隐藏，避免干扰阅读主结构
+- This is part of `raw/`, but it is primarily for supporting assets rather than source pages.
+- Obsidian uses it as the default attachment directory.
+- It is hidden in the file explorer by default to reduce visual noise.
