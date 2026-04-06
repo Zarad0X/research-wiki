@@ -1,0 +1,44 @@
+/*
+  Lightweight vault styling for research reading.
+  Keeps the default Obsidian look, but improves density and link scanning.
+*/
+
+.markdown-preview-view,
+.markdown-source-view.mod-cm6 .cm-scroller {
+  line-height: 1.65;
+}
+
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3 {
+  letter-spacing: -0.01em;
+}
+
+.markdown-preview-view h2 {
+  margin-top: 2.2rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.markdown-preview-view ul,
+.markdown-preview-view ol {
+  padding-inline-start: 1.4rem;
+}
+
+.markdown-preview-view .internal-link,
+.cm-hmd-internal-link {
+  font-weight: 600;
+}
+
+.markdown-preview-view .frontmatter,
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-frontmatter {
+  opacity: 0.78;
+}
+
+.markdown-preview-view table {
+  font-size: 0.95em;
+}
+
+.workspace-leaf-content[data-type="markdown"] .view-header-title {
+  font-weight: 650;
+}

@@ -1,0 +1,18 @@
+{
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "raw/assets",
+  "defaultViewMode": "preview",
+  "livePreview": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "inbox",
+  "promptDelete": false,
+  "readableLineLength": false,
+  "showLineNumber": true,
+  "showUnsupportedFiles": true,
+  "useMarkdownLinks": false,
+  "newLinkFormat": "shortest",
+  "showInlineTitle": false,
+  "userIgnoreFilters": [
+    "raw/assets/"
+  ]
+}
