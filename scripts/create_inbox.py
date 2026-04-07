@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 from datetime import date
+import json
 from pathlib import Path
 import re
 
@@ -30,6 +31,38 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def yaml_scalar(value: str) -> str:
+    if (
+        not value
+        or "\n" in value
+        or re.search(r":\s", value)
+        or value[0] in "#{}[],-?@`!&*'\""
+        or value[0].isspace()
+        or value[-1].isspace()
+    ):
+        return json.dumps(value, ensure_ascii=False)
+    return value
+
+
+def normalize_frontmatter(text: str) -> str:
+    if not text.startswith("---\n"):
+        return text
+    end = text.find("\n---\n", 4)
+    if end == -1:
+        return text
+    block = text[4:end]
+    lines = ["---"]
+    for line in block.splitlines():
+        if ":" not in line:
+            lines.append(line)
+            continue
+        key, value = line.split(":", 1)
+        lines.append(f"{key.strip()}: {yaml_scalar(value.strip())}")
+    lines.append("---")
+    body = text[end + 5 :]
+    return "\n".join(lines) + "\n" + body
+
+
 def main() -> int:
     args = parse_args()
     slug = args.slug or slugify(args.title)
@@ -45,6 +78,7 @@ def main() -> int:
         link=args.link,
         notes=args.notes,
     )
+    content = normalize_frontmatter(content)
     path.write_text(content, encoding="utf-8")
     print(path)
     return 0

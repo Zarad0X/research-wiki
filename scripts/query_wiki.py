@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 from dataclasses import dataclass
+import json
 from pathlib import Path
 import re
 
@@ -37,7 +38,15 @@ def parse_frontmatter(text: str) -> dict[str, str]:
         if ":" not in line:
             continue
         key, value = line.split(":", 1)
-        data[key.strip()] = value.strip()
+        parsed = value.strip()
+        if len(parsed) >= 2 and parsed[0] == '"' and parsed[-1] == '"':
+            try:
+                parsed = json.loads(parsed)
+            except json.JSONDecodeError:
+                pass
+        elif len(parsed) >= 2 and parsed[0] == "'" and parsed[-1] == "'":
+            parsed = parsed[1:-1]
+        data[key.strip()] = parsed
     return data
 
 
