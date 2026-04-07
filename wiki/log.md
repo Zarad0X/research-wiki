@@ -46,3 +46,51 @@
 - Created `[[2024-trellis]]` from the archived source.
 - Added `[[3d-generation]]` as the seed topic page for this new line.
 - Rebuilt `wiki/index.md` and ran lint after the ingest scaffold.
+
+## [2026-04-07] ingest | source from inbox
+
+- Archived the source into `raw/sources/2026-04-07-robotic-foundation-models-sergey-levine-talk.md`.
+- Created `[[robotic-foundation-models-sergey-levine-talk]]` from the archived source.
+- Added `[[sergey-levine]]` and connected the talk back into VLA, world models, and overview.
+- Rebuilt `wiki/index.md` and ran lint after the ingest scaffold.
+
+## [2026-04-07] ingest | source from inbox
+
+- Archived the source into `raw/sources/2026-04-07-robot-foundation-models-seminar-sergey-levine-2026-03-26.md`.
+- Created `[[robot-foundation-models-seminar-sergey-levine-2026-03-26]]` from the archived source.
+- Connected the seminar back into `[[2024-pi-0]]`, `[[vision-language-action-models]]`, `[[sergey-levine]]`, and `[[overview]]`.
+- Rebuilt `wiki/index.md` and ran lint after the ingest scaffold.
+
+## [2026-04-07] ingest | source from inbox
+
+- Archived the source into `raw/sources/2026-04-07-xie-chen-data-survey-history-landscape-pyramid-structure-and-recipes-for-ai-and-robotics-data.md`.
+- Created `[[xie-chen-data-survey-history-landscape-pyramid-structure-and-recipes-for-ai-and-robotics-data]]` from the archived source.
+- Added `[[ai-and-robotics-data]]` as a topic page for the data pillar and connected it back into overview.
+- Rebuilt `wiki/index.md` and ran lint after the ingest scaffold.
+
+## [2026-04-07] ingest | source from inbox
+
+- Archived the source into `raw/sources/2026-04-07-a-7-hour-marathon-interview-with-saining-xie-world-models-ami-labs-yann-lecun-fei-fei-li-and-42.md`.
+- Created `[[a-7-hour-marathon-interview-with-saining-xie-world-models-ami-labs-yann-lecun-fei-fei-li-and-42]]` from the archived source.
+- Added `[[saining-xie]]` and connected the interview into `[[world-models]]`, `[[ai-and-robotics-data]]`, and `[[overview]]`.
+- Rebuilt `wiki/index.md` and ran lint after the ingest scaffold.
+
+## [2026-04-07] expand | Saining Xie taste cluster
+
+- Archived `Saining Xie homepage` into `raw/sources/2026-04-07-saining-xie-homepage.md`.
+- Added `[[saining-xie-homepage]]` as a first-party source for Saining Xie's self-framing, representative works, and world-model ambition.
+- Expanded `[[saining-xie]]` from a thin person page into a page about recurring research taste and representative works.
+- Filled in `[[representation-learning]]` and `[[saining-xie-research-taste-and-representative-works]]` to capture the representation-learning throughline and why his work often feels elegant.
+- Rebuilt `wiki/index.md` and ran lint after the expansion.
+
+## [2026-04-07] expand | Saining Xie representative papers
+
+- Added `[[2017-resnext]]`, `[[2020-moco]]`, `[[2022-mae]]`, `[[2022-convnext]]`, and `[[2023-dit]]` as concrete anchor papers for the Saining Xie cluster.
+- Updated `[[saining-xie]]`, `[[representation-learning]]`, `[[saining-xie-research-taste-and-representative-works]]`, and `[[overview]]` so the taste discussion now points to specific works instead of only high-level commentary.
+- Rebuilt `wiki/index.md` and ran lint after the paper expansion.
+
+## [2026-04-07] ingest | source from inbox
+
+- Archived the source into `raw/sources/2026-04-07-saining-xie-homepage.md`.
+- Created `[[saining-xie-homepage]]` from the archived source.
+- Rebuilt `wiki/index.md` and ran lint after the ingest scaffold.

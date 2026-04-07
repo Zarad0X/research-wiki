@@ -3,8 +3,8 @@ title: World Models
 kind: topic
 summary: A topic page tracking the evolution from latent imagined dynamics to foundation-scale interactive world simulators and world action models.
 status: active
-source_count: 4
-updated: 2026-04-06
+source_count: 6
+updated: 2026-04-07
 ---
 
 # World Models
@@ -47,6 +47,8 @@ updated: 2026-04-06
 - world model 最终会是 planner、policy，还是训练数据引擎
 - robotics foundation model 的主干会继续偏 VLA，还是逐渐转向 WAM
 - 开放世界视频学习与真实可执行物理控制之间的 gap 该如何缩小
+- 如果按 Levine 的 framing 看，world model 路线也必须回答同样的 recipe 问题：什么数据、什么目标、什么 post-training
+- 如果按 Saining Xie 的 framing 看，world model 更深的核心也许在 representation，而不只是 rollout 或 simulation
 
 ## Connections
 
@@ -54,8 +56,13 @@ updated: 2026-04-06
 - [[2024-genie]]
 - [[2026-dreamzero]]
 - [[2026-lingbot-world]]
+- [[representation-learning]]
 - [[vision-language-action-models]]
 - [[world-models-genie-dreamzero-lingbot-world]]
+- [[sergey-levine]]
+- [[robotic-foundation-models-sergey-levine-talk]]
+- [[saining-xie]]
+- [[a-7-hour-marathon-interview-with-saining-xie-world-models-ami-labs-yann-lecun-fei-fei-li-and-42]]
 
 ## Sources
 
@@ -63,3 +70,5 @@ updated: 2026-04-06
 - [[2024-genie]]
 - [[2026-dreamzero]]
 - [[2026-lingbot-world]]
+- [[robotic-foundation-models-sergey-levine-talk]]
+- [[a-7-hour-marathon-interview-with-saining-xie-world-models-ami-labs-yann-lecun-fei-fei-li-and-42]]
