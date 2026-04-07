@@ -22,6 +22,13 @@ This repository is both a human-readable research wiki and an agent-maintained m
 - `scripts/`: index, lint, query, and creation tools
 - `AGENTS.md`: the operating protocol for LLMs and agents
 
+## Branching Policy
+
+- `main` is the framework branch and should stay free of personal research content
+- your actual `wiki/`, `inbox/`, and archived `raw/` notes should live locally by default
+- if you want git history for private content, use a local-only `personal` branch or a separate private remote
+- do not push personal content branches to a public or shared remote by accident
+
 ## Common Contribution Types
 
 - add a new paper page

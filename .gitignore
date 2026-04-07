@@ -5,3 +5,22 @@
 .obsidian/plugins/
 outputs/
 __pycache__/
+
+# Keep personal research content local by default.
+/inbox/*.md
+!/inbox/README.md
+/raw/papers/*.md
+!/raw/papers/README.md
+/raw/sources/*.md
+!/raw/sources/README.md
+/raw/assets/*
+!/raw/assets/README.md
+/wiki/*.md
+/wiki/papers/*.md
+/wiki/topics/*.md
+/wiki/methods/*.md
+/wiki/benchmarks/*.md
+/wiki/people/*.md
+/wiki/ideas/*.md
+/wiki/sources/*.md
+/wiki/syntheses/*.md

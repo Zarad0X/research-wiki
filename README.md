@@ -9,6 +9,15 @@ It is not meant to be a generic notes app. It is a research memory system mainta
 - Obsidian-friendly
 - built for paper reading, topic maps, syntheses, and research ideas
 
+## Branch Model
+
+This repo is designed to support a clean public framework branch and a local personal content branch:
+
+- `main`: framework only, safe to push
+- `personal`: your private research content, kept local by default
+
+By default, `.gitignore` keeps new content under `wiki/`, `inbox/`, and archived `raw/` material out of `main`. If you want to version your private notes, do that on a local-only `personal` branch or in a separate private remote.
+
 ## What This Repo Is
 
 - a research-oriented wiki structure
@@ -50,9 +59,6 @@ research-wiki/
 │   └── query_wiki.py     # generates an agent-facing context pack
 ├── templates/            # templates for new pages
 └── wiki/
-    ├── index.md
-    ├── log.md
-    ├── overview.md
     ├── sources/
     ├── papers/
     ├── topics/
@@ -62,6 +68,8 @@ research-wiki/
     ├── ideas/
     └── syntheses/
 ```
+
+Files such as `wiki/index.md`, `wiki/log.md`, and `wiki/overview.md` are expected to exist in your local working wiki, but they are not tracked on the clean framework branch by default.
 
 ## What It Is Good For
 
@@ -114,7 +122,7 @@ python3 scripts/rebuild_index.py
 python3 scripts/lint_wiki.py
 ```
 
-10. Review [wiki/index.md](./wiki/index.md) and [wiki/log.md](./wiki/log.md).
+10. Review the locally generated `wiki/index.md` and `wiki/log.md` if you are working on your personal branch.
 
 ## Recommended Research Workflow
 
@@ -155,3 +163,9 @@ This repository can be opened directly as an Obsidian vault.
   - attachments default to `raw/assets/`
   - a small CSS snippet improves readability and scanning
 - `.obsidian/workspace.json` stays ignored so local window layout does not leak into the repository
+
+## Personal Content Policy
+
+- The public/framework branch should not track your personal wiki content.
+- `wiki/`, `inbox/`, and archived `raw/` content are meant to live locally by default.
+- If you want a versioned knowledge base, keep it on your local `personal` branch instead of pushing it to `origin/main`.

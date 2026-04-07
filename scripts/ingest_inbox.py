@@ -255,7 +255,11 @@ def build_raw_content(
 
 
 def append_log_entry(page_slug: str, page_kind: str, raw_relpath: Path) -> None:
-    existing = LOG.read_text(encoding="utf-8").rstrip()
+    if LOG.exists():
+        existing = LOG.read_text(encoding="utf-8").rstrip()
+    else:
+        LOG.parent.mkdir(parents=True, exist_ok=True)
+        existing = "# Wiki Log"
     entry = "\n".join(
         [
             f"## [{date.today().isoformat()}] ingest | {page_kind} from inbox",
