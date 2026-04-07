@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 from datetime import date
+import json
 from pathlib import Path
 import subprocess
 import re
@@ -70,15 +71,36 @@ def parse_frontmatter(text: str) -> tuple[dict[str, str], str]:
         if ":" not in line:
             continue
         key, value = line.split(":", 1)
-        data[key.strip()] = value.strip()
+        parsed = value.strip()
+        if len(parsed) >= 2 and parsed[0] == '"' and parsed[-1] == '"':
+            try:
+                parsed = json.loads(parsed)
+            except json.JSONDecodeError:
+                pass
+        elif len(parsed) >= 2 and parsed[0] == "'" and parsed[-1] == "'":
+            parsed = parsed[1:-1]
+        data[key.strip()] = parsed
     body = text[end + 5 :]
     return data, body
+
+
+def yaml_scalar(value: str) -> str:
+    if (
+        not value
+        or "\n" in value
+        or re.search(r":\s", value)
+        or value[0] in "#{}[],-?@`!&*'\""
+        or value[0].isspace()
+        or value[-1].isspace()
+    ):
+        return json.dumps(value, ensure_ascii=False)
+    return value
 
 
 def dump_frontmatter(frontmatter: dict[str, str], body: str) -> str:
     lines = ["---"]
     for key, value in frontmatter.items():
-        lines.append(f"{key}: {value}")
+        lines.append(f"{key}: {yaml_scalar(str(value))}")
     lines.append("---")
     lines.append("")
     lines.append(body.lstrip("\n"))
