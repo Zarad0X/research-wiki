@@ -26,6 +26,7 @@ Maintain a research-oriented three-layer knowledge system:
 - Default to wiki links: `[[page-slug]]`.
 - Distinguish author claims, reported results, your interpretation, and your doubts.
 - The goal is not compression for its own sake. The goal is reusable research memory for literature review, topic mapping, and research judgment.
+- Treat the owner's evolving ideas, taste, and working theses as first-class wiki content, not as side-comments buried inside paper notes.
 
 ## Page Format
 
@@ -66,6 +67,10 @@ Suggested `kind` values:
 - `benchmark`
 - `person`
 - `idea`
+- `question`
+- `thesis`
+- `program`
+- `review`
 - `synthesis`
 - `overview`
 
@@ -90,15 +95,21 @@ When the user asks you to process a source:
    - `methods/`
    - `benchmarks/`
    - `people/`
-   - `ideas/`
+   - `questions/`
+   - `theses/`
+   - `programs/`
+   - `reviews/`
+   - `ideas/` for meta or uncategorized owner pages during transition
 7. At minimum:
    - use `python3 scripts/create_page.py` when you need a new page
    - use `python3 scripts/ingest_inbox.py` when the source already exists as a structured inbox item and should be archived into `raw/`
    - if it is a paper, create or update a page under `wiki/papers/`
    - if it is not a paper, create or update a page under `wiki/sources/`
    - update related `topics/`, `methods/`, `benchmarks/`, and `people/`
-   - update an `ideas/` page if the source creates a concrete new insight or question
-   - update `wiki/overview.md` when necessary
+   - ask whether the source updates an active `question`, strengthens or weakens a `thesis`, belongs in an existing `program`, or justifies a reusable `review`
+   - if the source materially reinforces or weakens an existing owner judgment, update `wiki/questions/research-questions.md`, `wiki/theses/working-theses.md`, `wiki/programs/`, or `wiki/reviews/` before defaulting to archive-only updates
+   - keep `wiki/ideas/research-taste.md` for longer-lived taste / filter notes and other meta owner pages during transition
+   - update `wiki/now.md` and `wiki/overview.md` when priorities or worldview change
    - append an ingest record to `wiki/log.md`
    - rebuild the index
    - run lint
@@ -124,6 +135,14 @@ Paper pages should include these sections whenever the material supports them:
 - `Connections`
 - `Sources`
 
+Default depth policy for paper notes:
+
+- when the user asks to organize or ingest a paper, default to detailed notes rather than short summaries
+- aim to capture the paper's research situation, assumptions, method structure, experimental logic, strengths, limitations, and reusable questions
+- do not stop at abstract-level compression when the paper provides enough material for a deeper reusable page
+- if the user does not ask for brevity, prefer richer paper pages that can support future literature review and synthesis work
+- distinguish clearly between author claims, measured results, your interpretation, and your doubts
+
 Interpretation notes:
 
 - `Story / Setting`: what research situation the paper is trying to frame
@@ -141,9 +160,12 @@ When the user asks a question:
 2. Read `wiki/index.md`.
 3. Open the most relevant pages.
 4. Build the answer from existing wiki conclusions when possible instead of re-deriving everything from raw sources.
-5. If the answer creates a reusable summary, write it back into:
-   - `wiki/syntheses/`
-   - or `wiki/ideas/`
+5. If the answer creates a reusable summary, write it back into the highest-value owner-facing layer:
+   - `wiki/reviews/` for evaluative comparisons and reusable judgments
+   - `wiki/questions/` for active decision panels
+   - `wiki/theses/` for current working beliefs
+   - `wiki/programs/` for live research agendas
+   - only use `wiki/syntheses/` or `wiki/ideas/` when the content is still transitional or does not fit the more specific layers yet
 6. Update `wiki/log.md`.
 
 ## Lint Workflow
@@ -166,6 +188,7 @@ Check regularly for:
 - when new information conflicts with old conclusions, surface the tension explicitly
 - write pages that are reusable later, not one-off chat answers
 - optimize for literature review, group meetings, surveys, proposals, and research direction finding
+- do not let the wiki drift into a paper graveyard; regularly elevate recurring judgments into explicit owner-facing `questions/`, `theses/`, `programs/`, or `reviews/` pages
 
 ## Language Policy
 
@@ -192,8 +215,12 @@ Check regularly for:
 - `topics/` is for research topics
 - `methods/` is for method families
 - `benchmarks/` is for datasets, metrics, and protocols
-- `ideas/` is for your questions, directions, and experimental intuitions
-- `syntheses/` is for summaries, comparisons, and review-style outputs
+- `questions/` is for active decision panels and live research uncertainties
+- `theses/` is for current working beliefs and change-my-mind criteria
+- `programs/` is for live research lines that connect evidence, questions, and next priorities
+- `reviews/` is for evaluative owner-facing review pages
+- `ideas/` is for meta pages or uncategorized owner insights during transition
+- `syntheses/` is for descriptive or mixed summary pages during transition
 
 ## Useful Commands
 

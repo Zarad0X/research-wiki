@@ -11,17 +11,25 @@ ROOT = Path(__file__).resolve().parents[1]
 WIKI = ROOT / "wiki"
 INDEX = WIKI / "index.md"
 EXCLUDED = {"index.md", "log.md"}
+TOP_LEVEL_SECTION_BY_SLUG = {
+    "now": "now",
+}
 
 SECTION_ORDER = [
+    ("now", "Now"),
     ("overview", "Overview"),
-    ("papers", "Papers"),
+    ("questions", "Questions"),
+    ("theses", "Theses"),
+    ("programs", "Programs"),
+    ("reviews", "Reviews"),
     ("topics", "Topics"),
+    ("papers", "Papers"),
+    ("sources", "Sources"),
+    ("people", "People"),
     ("methods", "Methods"),
     ("benchmarks", "Benchmarks"),
-    ("people", "People"),
     ("ideas", "Ideas"),
     ("syntheses", "Syntheses"),
-    ("sources", "Sources"),
 ]
 
 
@@ -78,6 +86,8 @@ def extract_summary(frontmatter: dict[str, str], text: str) -> str:
 
 def detect_section(relpath: Path, frontmatter: dict[str, str]) -> str:
     kind = frontmatter.get("kind", "").strip().lower()
+    if relpath.stem in TOP_LEVEL_SECTION_BY_SLUG:
+        return TOP_LEVEL_SECTION_BY_SLUG[relpath.stem]
     if kind == "overview":
         return "overview"
     if relpath.parent == Path("."):

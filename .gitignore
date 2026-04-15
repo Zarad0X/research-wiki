@@ -24,3 +24,8 @@ __pycache__/
 /wiki/ideas/*.md
 /wiki/sources/*.md
 /wiki/syntheses/*.md
+/wiki/questions/*.md
+/wiki/theses/*.md
+/wiki/programs/*.md
+/wiki/reviews/*.md
+.claude/

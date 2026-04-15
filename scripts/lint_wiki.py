@@ -21,6 +21,10 @@ VALID_KINDS = {
     "person",
     "idea",
     "synthesis",
+    "question",
+    "thesis",
+    "program",
+    "review",
     "overview",
 }
 DIR_TO_KIND = {
@@ -32,6 +36,10 @@ DIR_TO_KIND = {
     "people": "person",
     "ideas": "idea",
     "syntheses": "synthesis",
+    "questions": "question",
+    "theses": "thesis",
+    "programs": "program",
+    "reviews": "review",
 }
 REQUIRED_SECTIONS = {
     "paper": {"Summary", "Problem", "Main Idea", "Connections", "Sources"},
@@ -42,6 +50,10 @@ REQUIRED_SECTIONS = {
     "person": {"Summary", "Connections", "Sources"},
     "idea": {"Summary", "Connections", "Sources"},
     "synthesis": {"Summary", "Connections", "Sources"},
+    "question": {"Summary", "Connections", "Sources"},
+    "thesis": {"Summary", "Connections", "Sources"},
+    "program": {"Summary", "Connections", "Sources"},
+    "review": {"Summary", "Connections", "Sources"},
     "overview": {"Summary", "Sources"},
 }
 HEADER_RE = re.compile(r"^##\s+(.+?)\s*$", re.MULTILINE)
