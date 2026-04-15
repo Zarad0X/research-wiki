@@ -3,7 +3,7 @@ title: Saining Xie Research Taste and Representative Works
 kind: synthesis
 summary: A synthesis of Saining Xie's research taste, recurring design instincts, and representative works across representation learning, architectures, and world models.
 status: active
-source_count: 7
+source_count: 10
 updated: 2026-04-07
 ---
 
@@ -11,7 +11,7 @@ updated: 2026-04-07
 
 ## Summary
 
-如果要把 Saining Xie 的研究风格压缩成一句话，我会说：他擅长找到那种“看起来简单，但会在几年后变成基础设施”的表示或架构基元。你会发现他很多最有代表性的 work 都带着相似气质：`ResNeXt` 不靠复杂故事取胜，而是把 design space 理顺；`MoCo` 和 `MAE` 不是为了做一个局部任务技巧，而是在解决“怎样学出通用表示”；`ConvNeXt` 与 `ConvNeXt V2` 则像是在提醒社区，旧 backbone 只要设计空间被重新整理，依然能重新变成强默认项；`DiT` 则把这种 taste 延伸到生成模型里。现在再往后看，他对 world models 的兴趣也不像突然转向，更像是把 representation 这根主线往物理世界继续推。
+如果要把 Saining Xie 的研究风格压缩成一句话，我会说：他擅长找到那种“看起来简单，但会在几年后变成基础设施”的表示或架构基元。你会发现他很多最有代表性的 work 都带着相似气质：`ResNeXt` 不靠复杂故事取胜，而是把 design space 理顺；`MoCo` 和 `MAE` 不是为了做一个局部任务技巧，而是在解决“怎样学出通用表示”；`ConvNeXt` 与 `ConvNeXt V2` 则像是在提醒社区，旧 backbone 只要设计空间被重新整理，依然能重新变成强默认项；`DiT` 把这种 taste 延伸到生成模型里；`Cambrian-1` 则把它明确推进到 vision-centric multimodal systems。现在再往后看，他对 world models 和 `AMI Labs` 的兴趣也不像突然转向，更像是把 representation 这根主线往物理世界继续推。
 
 ## Main Comparison
 
@@ -26,8 +26,9 @@ updated: 2026-04-07
 - 和只做 narrow task improvement 的工作相比，他的作品更像会外溢到多个子领域：
   - `ResNeXt` 影响 architecture design
   - `MoCo`、`MAE` 影响自监督表示学习
-  - `ConvNeXt` 重新定义 ConvNet 竞争力
+  - `ConvNeXt`、`ConvNeXt V2` 重新定义 ConvNet 竞争力
   - `DiT` 进入生成模型主干叙事
+  - `Cambrian-1` 把 vision-centric 取向带进多模态系统
   - world-model framing 则把这些 taste 推向 embodied / physical intelligence
 
 ## Research Takeaways
@@ -42,6 +43,7 @@ updated: 2026-04-07
 - world models 会不会成为他这条研究 taste 的下一次大爆发，像 `MoCo` 或 `DiT` 那样重新定义一个方向。
 - representation learning 在未来几年会不会重新回到 AI 主叙事中心，而不是继续被 instruction tuning 盖住。
 - 如果沿着他的 taste 继续读文献，下一批值得重点跟的东西也许不是单篇 benchmark paper，而是新一代 world-grounded primitives。
+- `AMI Labs` 会不会成为这种 taste 的组织化延伸，也就是从“优雅 paper”走向“优雅 research agenda”。
 
 ## Connections
 
@@ -50,7 +52,10 @@ updated: 2026-04-07
 - [[2020-moco]]
 - [[2022-mae]]
 - [[2022-convnext]]
+- [[2023-convnext-v2]]
 - [[2023-dit]]
+- [[2024-cambrian-1]]
+- [[ami-labs]]
 - [[saining-xie-homepage]]
 - [[representation-learning]]
 - [[world-models]]
@@ -62,6 +67,9 @@ updated: 2026-04-07
 - [[2020-moco]]
 - [[2022-mae]]
 - [[2022-convnext]]
+- [[2023-convnext-v2]]
 - [[2023-dit]]
+- [[2024-cambrian-1]]
+- [[ami-labs]]
 - [[saining-xie-homepage]]
 - [[a-7-hour-marathon-interview-with-saining-xie-world-models-ami-labs-yann-lecun-fei-fei-li-and-42]]

@@ -3,8 +3,8 @@ title: AI and Robotics Data
 kind: topic
 summary: A topic page about data history, scaling constraints, and recipe design for AI and robotics systems.
 status: active
-source_count: 2
-updated: 2026-04-07
+source_count: 5
+updated: 2026-04-08
 ---
 
 # AI and Robotics Data
@@ -19,6 +19,9 @@ updated: 2026-04-07
 - foundation model 阶段，数据开始变成能力边界的主要决定因素之一
 - 对 LLM 来说，公开互联网文本已经越来越接近高质量数据瓶颈
 - 对 robotics 来说，数据机会仍然很大，但关键不只是数量，而是采集、分层、融合与后训练 recipe
+- 最近像 [[2025-taste-rob]] 这样的工作又补了一层：有些关键数据不是直接收集 policy demonstration，而是先生成更 task-aligned 的 hand-object interaction video
+- 像 [[2025-object-centric-3d-motion-field]] 这样的工作则从另一侧补上：即使有 human video，关键也在于怎样从视频里提纯出真正可用于控制的动作表示
+- `GEN-1` 这条线又把问题推进了一步：如果 Generalist 的 claim 成立，那么大规模 wearable human interaction data 不只是 cheap pretraining substitute，而可能本身就是 robotics scaling 的主燃料之一
 
 ## Key Questions
 
@@ -32,12 +35,18 @@ updated: 2026-04-07
 - [[2024-openvla]]
 - [[2024-pi-0]]
 - [[xie-chen-data-survey-history-landscape-pyramid-structure-and-recipes-for-ai-and-robotics-data]]
+- [[2025-taste-rob]]
+- [[2025-object-centric-3d-motion-field]]
+- [[gen-1-scaling-embodied-foundation-models-to-mastery]]
 
 ## Open Questions
 
 - LLM data 墙和 robotics data 红利之间的差距还能持续多久
 - robotics data 的真正瓶颈在采集成本、标注方式、 embodiment 多样性，还是 evaluation
 - 未来最重要的是更多 raw data，还是更好的 data mixture 和 post-training recipe
+- 任务导向的视频生成数据会不会变成 imitation learning 的中间层，而不是只是可视化 demo
+- 从 human video 学机器人时，真正的瓶颈会不会越来越落在 action representation，而不是数据量本身
+- wearable human interaction data 是否真的能在更广任务上系统性替代大规模 robot teleoperation pretraining
 
 ## Connections
 
@@ -45,6 +54,11 @@ updated: 2026-04-07
 - [[representation-learning]]
 - [[vision-language-action-models]]
 - [[world-models]]
+- [[2025-taste-rob]]
+- [[2025-object-centric-3d-motion-field]]
+- [[gen-1-scaling-embodied-foundation-models-to-mastery]]
+- [[generalist-ai]]
+- [[xiaoguang-han]]
 - [[robot-foundation-models-seminar-sergey-levine-2026-03-26]]
 - [[literature-review]]
 - [[a-7-hour-marathon-interview-with-saining-xie-world-models-ami-labs-yann-lecun-fei-fei-li-and-42]]
@@ -53,3 +67,6 @@ updated: 2026-04-07
 
 - [[xie-chen-data-survey-history-landscape-pyramid-structure-and-recipes-for-ai-and-robotics-data]]
 - [[a-7-hour-marathon-interview-with-saining-xie-world-models-ami-labs-yann-lecun-fei-fei-li-and-42]]
+- [[2025-taste-rob]]
+- [[2025-object-centric-3d-motion-field]]
+- [[gen-1-scaling-embodied-foundation-models-to-mastery]]

@@ -21,6 +21,10 @@ DIR_BY_KIND = {
     "person": "people",
     "idea": "ideas",
     "synthesis": "syntheses",
+    "question": "questions",
+    "thesis": "theses",
+    "program": "programs",
+    "review": "reviews",
 }
 
 

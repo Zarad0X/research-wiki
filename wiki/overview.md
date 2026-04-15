@@ -1,78 +1,103 @@
 ---
 title: Overview
 kind: overview
-summary: Current map of the wiki and the operating thesis for this research knowledge base.
+summary: The stable worldview page for this research wiki, centered on current bets, tensions, and the owner's evolving research agenda.
 status: active
-source_count: 19
-updated: 2026-04-07
+source_count: 39
+updated: 2026-04-15
 ---
 
 # Overview
 
 ## Summary
 
-这个库当前围绕一个核心命题展开：相比每次 query 都重新从原始文档中检索和拼装，先让 LLM 把研究知识持续编译进一套 interlinked markdown wiki，会得到更强的复利效应。当前已经形成两个较清晰的小研究簇：一组是 VLA，另一组是 world models / WAM；另外开始长出一条新的 `3D generation` 线，目前以 `TRELLIS` 作为种子论文。最近又补进了两条很有价值的 Sergey Levine 讲座来源：一条是 DAI 2024 的 `Robotic Foundation Models` keynote，另一条是 2026-03-26 的 seminar，后者更具体地覆盖了 `pi_0` 之后的 reasoning、数据策略和 RL post-training 发展。现在又开始长出一条 `AI and robotics data` 线，用来承接模型之外的数据配方问题。同时，围绕 Saining Xie 已经形成一个更像“研究 taste cluster”的小簇：不仅有长访谈、主页 source、`representation learning` topic 和 taste synthesis，还补进了 `ResNeXt`、`MoCo`、`MAE`、`ConvNeXt`、`DiT` 这组代表作作为具体锚点。
+这个页面不再只是 repo map，而是这个 wiki 的稳定 worldview 页面。它的作用不是覆盖所有页面，而是回答：这个库当前围绕哪些核心研究命题组织、我现在更相信什么、我对什么保持怀疑、以及不同 cluster 之间正在如何连起来。更动态的“这周我在追什么”放到 [[now]]；这里保留相对稳定的研究视角。
 
 ## Working Thesis
 
-- `raw/` 保存原始事实来源
-- `wiki/` 保存经 LLM 维护的结构化研究知识
-- 高价值 query 结果应该继续写回 wiki，而不是丢在聊天历史里
-- 单篇论文、topic map、method comparison、benchmark notes、research ideas 都应成为长期页面
-- 研究脉络应尽量从“单篇 paper 摘要”升级到“paper 之间的关系图”
+- `raw/` 保存原始事实来源，`wiki/` 保存结构化研究知识，但真正高价值的输出应该逐渐长成 owner-facing 的 `questions / theses / programs / reviews`。
+- 证据层的目标不是堆 paper，而是不断把外部材料编译进自己的研究判断。
+- 现在最值得跟的，不是单篇 benchmark 增益，而是哪些中间表示、数据 recipe、system interface 会在 embodied intelligence 里变成长期基础设施。
+- 这个库的方向，正在从“paper archive with topic maps”转向“research judgment system with evidence backing”。
 
-## Current Pages
+## My Current Bets
 
-- 方法页：[[llm-wiki]]
-- 人物页：[[andrej-karpathy]]、[[sergey-levine]]
-- 新的人物页：[[saining-xie]]
-- 首个来源页：[[karpathy-llm-wiki-gist]]
-- 新的讲座来源页：[[robotic-foundation-models-sergey-levine-talk]]
-- 新的 seminar 来源页：[[robot-foundation-models-seminar-sergey-levine-2026-03-26]]
-- 新的数据播客来源页：[[xie-chen-data-survey-history-landscape-pyramid-structure-and-recipes-for-ai-and-robotics-data]]
-- 新的长访谈来源页：[[a-7-hour-marathon-interview-with-saining-xie-world-models-ami-labs-yann-lecun-fei-fei-li-and-42]]
-- 新的主页来源页：[[saining-xie-homepage]]
-- VLA topic 页：[[vision-language-action-models]]
-- 第一批论文页：[[2023-rt-2]]、[[2024-openvla]]、[[2024-pi-0]]
-- 首个对比 synthesis：[[rt-2-openvla-pi-0]]
-- world model topic 页：[[world-models]]
-- 第二批论文页：[[2018-world-models]]、[[2024-genie]]、[[2026-dreamzero]]、[[2026-lingbot-world]]
-- 第二个对比 synthesis：[[world-models-genie-dreamzero-lingbot-world]]
-- 新的 3D generation topic 页：[[3d-generation]]
-- 新的 data topic 页：[[ai-and-robotics-data]]
-- 新的 representation topic 页：[[representation-learning]]
-- 新增论文页：[[2024-trellis]]
-- 新增代表作 paper 页：[[2017-resnext]]、[[2020-moco]]、[[2022-mae]]、[[2022-convnext]]、[[2023-dit]]
-- 新的 taste synthesis：[[saining-xie-research-taste-and-representative-works]]
-- topic 页面：[[literature-review]]
-- idea 页面：[[research-questions]]
+- `representation + recipe + post-training + system integration` 的组合杠杆，当前比单点 architecture innovation 更值得追。
+- `human-video-to-robot` 这条线的真正瓶颈，很可能在 action abstraction / interaction-centric representation，而不只是数据规模。
+- `VLA` 和 `world model / WAM` 更像会融合，而不是简单替代。
+- `articulated reconstruction` 不该再被只看作几何问题，而应该放进 `HOI / real2sim / manipulation` 的闭环里理解。
+- 对 3D 来说，越来越多工作值得被当作基础设施问题看，而不只是内容生成问题。
 
-## Open Questions
+## What I’m Skeptical Of
 
-- 什么时候需要从 `index.md` 升级到专用搜索工具
-- 如何给 paper 页面增加更强的 provenance
-- 什么时候应该把 query 结果沉淀成 `synthesis` 或 `idea`
-- 如何把日常阅读节奏转成每周和每月的研究回顾
-- 当 topic 刚起步时，什么时机值得从“单篇种子 paper”升级到一个真正的 cluster
+- 只讲 benchmark gain，却不说明 gain 到底来自哪里。
+- 把 `more data` 和 `better representation` 混成一个故事。
+- 把 closed-system frontier demo 直接等同于稳定研究结论。
+- 只恢复表面形状，却不认真处理 articulated structure、contact consistency 或 simulator-ready output 的 real2sim 叙事。
+- 把 embodied progress 主要解释为单一 backbone 的代际替换，而忽略 recipe / post-training / system interface。
+
+## What Might Change My Mind
+
+- 开放、稳定、可复现的 world-model-centric 主干，在真实机器人上显著压过强 VLA baseline。
+- 强证据表明，大规模 raw human video 预训练本身已经足以稳定学出跨 embodiment 的动作抽象，而不需要更结构化的中间表示。
+- 清楚证明单一 architecture shift 比 data recipe、post-training、system integration 的组合杠杆更关键的新一代结果。
+- articulated / HOI / real2sim pipeline 里，明确结构输出并不是长期必要条件的系统性证据。
+
+## What I’m Tracking
+
+- [[vision-language-action-models]]
+- [[world-models]]
+- [[ai-and-robotics-data]]
+- [[3d-generation]]
+- [[articulated-object-reconstruction-and-hoi]]
+- [[human-video-to-robot-learning]]
+- [[research-questions]]
+- [[working-theses]]
+- [[research-taste]]
+
+## Current Research Layers
+
+- `papers/`, `sources/`, `people/`: evidence layer
+- `topics/`, `methods/`, `benchmarks/`: map layer
+- `questions/`, `theses/`, `reviews/`: judgment layer
+- `programs/`, `now.md`: agenda layer
+- `ideas/` and `syntheses/` remain as transitional / mixed layers while the architecture shifts upward
+
+## Where The Main Clusters Are Heading
+
+- `VLA` 这条线已经不只是 action token 或 continuous action modeling 本身，而是在逼近更大的 question：control interface 应该怎样和 reasoning、post-training、predictive structure 接起来。
+- `world models / WAM` 这条线正在从 simulator / predictive substrate 走向 policy substrate，因此和 VLA 的边界越来越值得显式比较。
+- `AI and robotics data` 正在从“数据够不够”升级为“什么数据、什么 mixture、什么后训练 recipe 真正决定边界”。
+- `3D generation` 这条线越来越不像单独的 asset generation，而越来越像 geometry / representation infrastructure。
+- `articulated object reconstruction + HOI` 这条线开始变成一个更像 interaction-centric real2sim pipeline 的入口，而不只是静态重建问题。
+
+## Key Entry Points
+
+- 当前最动态的入口：[[now]]
+- 当前决策面板：[[research-questions]]
+- 当前 working beliefs：[[working-theses]]
+- 当前长期滤镜：[[research-taste]]
+- 当前最明确的 program：[[human-video-to-robot-learning]]
 
 ## Sources
 
-- [[karpathy-llm-wiki-gist]]
-- [[2023-rt-2]]
+- [[research-questions]]
+- [[working-theses]]
+- [[research-taste]]
+- [[human-video-to-robot-learning]]
+- [[vision-language-action-models]]
+- [[world-models]]
+- [[ai-and-robotics-data]]
+- [[3d-generation]]
+- [[articulated-object-reconstruction-and-hoi]]
 - [[2024-openvla]]
 - [[2024-pi-0]]
-- [[2018-world-models]]
 - [[2024-genie]]
 - [[2026-dreamzero]]
 - [[2026-lingbot-world]]
-- [[2024-trellis]]
-- [[robotic-foundation-models-sergey-levine-talk]]
-- [[robot-foundation-models-seminar-sergey-levine-2026-03-26]]
-- [[xie-chen-data-survey-history-landscape-pyramid-structure-and-recipes-for-ai-and-robotics-data]]
-- [[a-7-hour-marathon-interview-with-saining-xie-world-models-ami-labs-yann-lecun-fei-fei-li-and-42]]
-- [[saining-xie-homepage]]
-- [[2017-resnext]]
-- [[2020-moco]]
-- [[2022-mae]]
-- [[2022-convnext]]
-- [[2023-dit]]
+- [[2025-vggt]]
+- [[2025-object-centric-3d-motion-field]]
+- [[2025-taste-rob]]
+- [[2026-articulation-in-motion]]
+- [[2026-articulated-reconstruction-transformer]]
+- [[2026-arthoi]]

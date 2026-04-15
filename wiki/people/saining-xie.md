@@ -37,6 +37,13 @@ Saining Xie 是那种很容易让人喜欢上“research taste”的研究者。
 - `Cambrian`
   继续把 vision-centric 的信念推进到多模态系统，而不是完全被语言中心叙事牵着走。
 
+## Current Direction
+
+- 从长访谈、主页和 `AMI Labs` 的公开 framing 一起看，他现在最值得跟的不是单篇热点 paper，而是一个更大的命题：
+  - representation 不应只服务于静态视觉 benchmark
+  - 它应继续长进 multimodal systems、world models、memory 和 planning
+- 这也解释了为什么 `Cambrian` 和 `AMI Labs` 看起来分属不同场景，但底层 taste 其实很一致
+
 ## Relevance
 
 - 他是理解“从视觉/表征学习一路走到 world models”这条路线的关键人物之一。
@@ -49,7 +56,10 @@ Saining Xie 是那种很容易让人喜欢上“research taste”的研究者。
 - [[2020-moco]]
 - [[2022-mae]]
 - [[2022-convnext]]
+- [[2023-convnext-v2]]
 - [[2023-dit]]
+- [[2024-cambrian-1]]
+- [[ami-labs]]
 - [[saining-xie-homepage]]
 - [[a-7-hour-marathon-interview-with-saining-xie-world-models-ami-labs-yann-lecun-fei-fei-li-and-42]]
 - [[saining-xie-research-taste-and-representative-works]]
@@ -60,7 +70,10 @@ Saining Xie 是那种很容易让人喜欢上“research taste”的研究者。
 - [[2020-moco]]
 - [[2022-mae]]
 - [[2022-convnext]]
+- [[2023-convnext-v2]]
 - [[2023-dit]]
+- [[2024-cambrian-1]]
+- [[ami-labs]]
 - [[representation-learning]]
 - [[world-models]]
 - [[ai-and-robotics-data]]

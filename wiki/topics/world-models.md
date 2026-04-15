@@ -49,6 +49,7 @@ updated: 2026-04-07
 - 开放世界视频学习与真实可执行物理控制之间的 gap 该如何缩小
 - 如果按 Levine 的 framing 看，world model 路线也必须回答同样的 recipe 问题：什么数据、什么目标、什么 post-training
 - 如果按 Saining Xie 的 framing 看，world model 更深的核心也许在 representation，而不只是 rollout 或 simulation
+- `AMI Labs` 的公开 framing 进一步把这点说得更明确：世界模型应该学习 abstract representations，并在 representation space 里做预测
 
 ## Connections
 
@@ -62,6 +63,7 @@ updated: 2026-04-07
 - [[sergey-levine]]
 - [[robotic-foundation-models-sergey-levine-talk]]
 - [[saining-xie]]
+- [[ami-labs]]
 - [[a-7-hour-marathon-interview-with-saining-xie-world-models-ami-labs-yann-lecun-fei-fei-li-and-42]]
 
 ## Sources

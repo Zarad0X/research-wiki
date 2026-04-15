@@ -5,3 +5,4 @@
 .obsidian/plugins/
 outputs/
 __pycache__/
+.claude/

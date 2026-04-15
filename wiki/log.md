@@ -89,8 +89,88 @@
 - Updated `[[saining-xie]]`, `[[representation-learning]]`, `[[saining-xie-research-taste-and-representative-works]]`, and `[[overview]]` so the taste discussion now points to specific works instead of only high-level commentary.
 - Rebuilt `wiki/index.md` and ran lint after the paper expansion.
 
+## [2026-04-07] expand | Saining Xie late-stage cluster
+
+- Added `[[2023-convnext-v2]]` and `[[2024-cambrian-1]]` to extend the cluster from core representation work into later architecture-objective co-design and vision-centric multimodal systems.
+- Added `[[ami-labs]]` as an organization page so the cluster now reaches from representative papers into a concrete world-model research agenda.
+- Updated `[[saining-xie]]`, `[[representation-learning]]`, `[[world-models]]`, `[[saining-xie-research-taste-and-representative-works]]`, and `[[overview]]`.
+- Rebuilt `wiki/index.md` and ran lint after the expansion.
+
+## [2026-04-07] expand | Xiaoguang Han recent papers
+
+- Added `[[xiaoguang-han-cuhksz-faculty-page]]` as a first-party source for Xiaoguang Han's recent publication clusters.
+- Added `[[xiaoguang-han]]` and `[[xiaoguang-han-recent-papers-2024-2025]]`.
+- Added `[[2024-richdreamer]]`, `[[2024-ipod]]`, `[[2025-stable-score]]`, and `[[2025-taste-rob]]` as anchor papers for his recent trajectory.
+- Updated `[[3d-generation]]`, `[[ai-and-robotics-data]]`, and `[[overview]]`.
+- Rebuilt `wiki/index.md` and ran lint after the expansion.
+
+## [2026-04-07] expand | Xiaoguang Han follow-up papers
+
+- Added `[[2025-reconviagen]]`, `[[2026-texspot]]`, and `[[2026-motioncrafter]]` to extend the Xiaoguang Han cluster into generation-assisted reconstruction, texture enhancement, and dynamic 4D geometry/motion.
+- Updated `[[xiaoguang-han]]`, `[[xiaoguang-han-recent-papers-2024-2025]]`, `[[3d-generation]]`, and `[[overview]]`.
+- Rebuilt `wiki/index.md` and ran lint after the follow-up expansion.
+
 ## [2026-04-07] ingest | source from inbox
 
 - Archived the source into `raw/sources/2026-04-07-saining-xie-homepage.md`.
 - Created `[[saining-xie-homepage]]` from the archived source.
 - Rebuilt `wiki/index.md` and ran lint after the ingest scaffold.
+
+## [2026-04-08] expand | Object-centric 3D Motion Field
+
+- Added `[[2025-object-centric-3d-motion-field]]` as a detailed paper page on action representation for robot learning from human videos.
+- Connected it to `[[ai-and-robotics-data]]`, `[[2025-taste-rob]]`, and `[[overview]]`.
+- Rebuilt `wiki/index.md` and ran lint after the expansion.
+
+## [2026-04-08] ingest | source from inbox
+
+- Archived the source into `raw/sources/2026-04-08-gen-1-scaling-embodied-foundation-models-to-mastery.md`.
+- Created `[[gen-1-scaling-embodied-foundation-models-to-mastery]]` from the archived source.
+- Rebuilt `wiki/index.md` and ran lint after the ingest scaffold.
+
+## [2026-04-08] expand | GEN-1 / Generalist first-pass integration
+
+- Expanded `[[gen-1-scaling-embodied-foundation-models-to-mastery]]` from ingest scaffold into a reusable source page about Generalist's embodied foundation model framing.
+- Added `[[generalist-ai]]` as an organization page to anchor future `GEN-0` / `GEN-1` / follow-up sources.
+- Updated `[[ai-and-robotics-data]]`, `[[vision-language-action-models]]`, and `[[overview]]` to connect GEN-1 into the existing robotics data and VLA story.
+
+## [2026-04-08] expand | VGGT detailed paper page
+
+- Added `[[2025-vggt]]` as a detailed paper page on feed-forward multi-view geometry and the emerging `3D geometry foundation model` pattern.
+- Updated `[[3d-generation]]`, `[[representation-learning]]`, and `[[overview]]` so the 3D line now includes both asset-generation representations and geometry-backbone infrastructure.
+
+## [2026-04-08] synthesis | articulated object reconstruction for real2sim
+
+- Added `[[articulated-object-reconstruction-real2sim]]` as a reading-oriented synthesis page for articulated reconstruction and digital-twin building.
+- Mapped the line from `Ditto / CARTO / PARIS` to `Real2Code / ArticulatedGS / LARM / ART`, with emphasis on simulator-ready structure and joint modeling.
+
+## [2026-04-08] expand | Articulation in Motion
+
+- Added `[[2026-articulation-in-motion]]` as a detailed paper page on prior-free articulated mobility analysis via dynamic-static disentanglement.
+- Updated `[[articulated-object-reconstruction-real2sim]]` and `[[3d-generation]]` so the articulated real2sim line now includes a stronger motion-first branch.
+
+## [2026-04-15] expand | articulated object reconstruction and HOI topic
+
+- Added `[[articulated-object-reconstruction-and-hoi]]` as a new topic page connecting articulated reconstruction, hand-object interaction, and real2sim-oriented structure recovery.
+- Updated `[[3d-generation]]`, `[[articulated-object-reconstruction-real2sim]]`, and `[[overview]]` so this line now has a clearer topic-level entry point.
+
+## [2026-04-15] expand | Articulated Reconstruction Transformer
+
+- Added `[[2026-articulated-reconstruction-transformer]]` as a detailed paper page on category-agnostic, feed-forward articulated object reconstruction with transformer-decoded part slots.
+- Updated `[[articulated-object-reconstruction-real2sim]]`, `[[articulated-object-reconstruction-and-hoi]]`, and `[[overview]]` so the articulated line now includes a clearer simulation-ready backbone entry.
+
+## [2026-04-15] expand | ArtHOI
+
+- Added `[[2026-arthoi]]` as a detailed paper page on monocular 4D reconstruction of hand-articulated-object interactions via coordinated refinement of multiple foundation-model priors.
+- Updated `[[articulated-object-reconstruction-and-hoi]]`, `[[articulated-object-reconstruction-real2sim]]`, and `[[overview]]` so the articulated / HOI line now includes a stronger monocular 4D interaction branch.
+
+## [2026-04-15] expand | owner judgment layer
+
+- Expanded `[[research-taste]]` into a first-class page for recurring research filters, repeated likes/dislikes, and likely biases.
+- Expanded `[[working-theses]]` into a page for current research theses that should shape reading order and synthesis work.
+- Updated `AGENTS.md` and `[[overview]]` so the wiki now treats owner judgment as first-class content instead of burying it inside paper notes.
+
+## [2026-04-15] expand | MonoArt
+
+- Added `[[2026-monoart]]` as a detailed paper page on monocular articulated 3D reconstruction via progressive structural reasoning.
+- Updated `[[articulated-object-reconstruction-real2sim]]`, `[[articulated-object-reconstruction-and-hoi]]`, and `[[overview]]` so the articulated line now more clearly separates geometry-first, motion-first, and interaction-first branches.

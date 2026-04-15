@@ -84,6 +84,9 @@ def inbound_counts(pages: dict[str, Page]) -> dict[str, int]:
     return counts
 
 
+OWNER_PRIORITY_KINDS = {"question", "thesis", "program", "review"}
+
+
 def score_page(page: Page, query_tokens: list[str], inbound: int) -> int:
     haystack = page.text.lower()
     title = page.title.lower()
@@ -98,6 +101,8 @@ def score_page(page: Page, query_tokens: list[str], inbound: int) -> int:
         if token in headings:
             score += 6
         score += haystack.count(token)
+    if page.kind in OWNER_PRIORITY_KINDS:
+        score += 5
     return score
 
 
@@ -122,7 +127,7 @@ def best_snippet(page: Page, query_tokens: list[str]) -> str:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Rank relevant wiki pages for a query and print an agent-friendly context pack.")
     parser.add_argument("query")
-    parser.add_argument("--kind", choices=["paper", "source", "topic", "method", "benchmark", "person", "idea", "synthesis", "overview"])
+    parser.add_argument("--kind", choices=["paper", "source", "topic", "method", "benchmark", "person", "idea", "synthesis", "question", "thesis", "program", "review", "overview"])
     parser.add_argument("--limit", type=int, default=6)
     return parser.parse_args()
 
